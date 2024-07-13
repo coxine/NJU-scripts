@@ -2,7 +2,7 @@
 // @name         Add GPA Rank on the Homepage
 // @namespace    http://tampermonkey.net/
 // @version      2024-07-13
-// @description  try to take over the world!
+// @description  在交换生界面直接显示GPA和排名，而无需点开申请页面
 // @author       Coxine
 // @match        http://elite.nju.edu.cn/exchangesystem/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=nju.edu.cn
