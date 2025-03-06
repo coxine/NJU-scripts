@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         SEECODER  courseware quick download
 // @namespace    http://tampermonkey.net/
-// @version      2025-03-06
+// @version      2025-03-07
 // @description  快速下载 SEECODER 平台课程的课件
 // @author       Coxine
 // @match        https://p-nju.seec.seecoder.cn/course/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=seecoder.cn
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (function () {
@@ -57,12 +58,15 @@
 
       const nameCell = document.createElement('td');
       nameCell.textContent = file.name;
+      nameCell.style = 'padding: 0px 10px;';
       row.appendChild(nameCell);
 
       const linkCell = document.createElement('td');
       const link = document.createElement('a');
       link.href = file.fileUrl;
       link.textContent = '下载';
+      link.style = 'color: #007bff; text-decoration: none;';
+      linkCell.style = 'text-align: center;';
       linkCell.appendChild(link);
       row.appendChild(linkCell);
 
@@ -93,6 +97,13 @@
   }
 
   function appendTable(element, table) {
+    const style = document.createElement('style');
+    style.textContent = `
+    table tr:nth-child(odd) {
+      background-color: #E0E0E0; /* Dark gray color for odd rows */
+    }
+  `;
+    document.head.appendChild(style);
     element.style = 'padding:10px 10px';
     element.appendChild(document.createElement('hr'));
     element.appendChild(document.createElement('h3')).textContent = '课件列表';
