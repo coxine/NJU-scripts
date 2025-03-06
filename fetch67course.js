@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SEECODER  courseware quick download
 // @namespace    http://tampermonkey.net/
-// @version      2025-03-07
+// @version      2025-03-08
 // @description  快速下载 SEECODER 平台课程的课件
 // @author       Coxine
 // @match        https://p-nju.seec.seecoder.cn/course/*
@@ -50,6 +50,7 @@
   function generateTable(fileInfo) {
     const table = document.createElement('table');
     table.style.width = '100%';
+    table.className = 'file-download-table';
     table.setAttribute('border', '0');
 
     const tbody = document.createElement('tbody');
@@ -99,8 +100,8 @@
   function appendTable(element, table) {
     const style = document.createElement('style');
     style.textContent = `
-    table tr:nth-child(odd) {
-      background-color: #E0E0E0; /* Dark gray color for odd rows */
+    .file-download-table tr:nth-child(odd) {
+      background-color: #E8E8E8; /* Dark gray color for odd rows */
     }
   `;
     document.head.appendChild(style);
